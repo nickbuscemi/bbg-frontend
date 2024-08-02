@@ -44,7 +44,7 @@ const About1 = () => {
                         <h3 className="text-2xl font-bold text-logoGreen font-pj">Contact Us</h3>
                         <p className="mt-4 text-base leading-7 text-gray-900 font-pj">Schedule a visit by phone, email, or website.</p>
 
-                        <img className="object-cover w-full mx-auto mt-10 rounded-xl md:mx-0" src={phone} alt="Contact Us" />
+                        <img className="object-cover w-full mx-auto mt-10 rounded-lg md:mx-0" src={phone} alt="Contact Us" />
                         <p className="text-base leading-7 text-gray-700 mt-7 font-pj">Reach out to us to discuss your pest issues and schedule a convenient time for an inspection.</p>
                     </div>
 
@@ -52,7 +52,7 @@ const About1 = () => {
                         <h3 className="text-2xl font-bold text-logoGreen font-pj">Inspect and Diagnose</h3>
                         <p className="mt-4 text-base leading-7 text-gray-900 font-pj">We inspect the problem and diagnose the issue.</p>
 
-                        <img className="object-cover w-full mx-auto mt-10 rounded-xl md:mx-0" src={inspection} alt="Inspect and Diagnose" />
+                        <img className="object-cover w-full mx-auto mt-10 rounded-lg md:mx-0" src={inspection} alt="Inspect and Diagnose" />
                         <p className="text-base leading-7 text-gray-700 mt-7 font-pj">Our experts will conduct a thorough inspection to identify the type of pest and the extent of the infestation.</p>
                     </div>
 
@@ -60,7 +60,7 @@ const About1 = () => {
                         <h3 className="text-2xl font-bold text-logoGreen font-pj">Initial Treatment</h3>
                         <p className="mt-4 text-base leading-7 text-gray-900 font-pj">We offer an initial treatment and maintenance options.</p>
 
-                        <img className="object-cover w-full mx-auto mt-10 md:mx-0 rounded-xl" src={planning} alt="Initial Treatment" />
+                        <img className="object-cover w-full mx-auto mt-10 md:mx-0 rounded-lg" src={planning} alt="Initial Treatment" />
                         <p className="text-base leading-7 text-gray-700 mt-7 font-pj">Based on our diagnosis, we provide an initial treatment plan and discuss options for monthly or quarterly maintenance.</p>
                     </div>
 
@@ -68,7 +68,7 @@ const About1 = () => {
                         <h3 className="text-2xl font-bold text-logoGreen font-pj">Follow Up</h3>
                         <p className="mt-4 text-base leading-7 text-gray-900 font-pj">We follow up on issues and provide emergency visits if needed.</p>
 
-                        <img className="object-cover w-full mx-auto mt-10 md:mx-0 rounded-xl" src={treatment} alt="Follow Up" />
+                        <img className="object-cover w-full mx-auto mt-10 md:mx-0 rounded-lg" src={treatment} alt="Follow Up" />
                         <p className="text-base leading-7 text-gray-700 mt-7 font-pj">We ensure your pest issues are resolved with follow-up visits and offer emergency services for urgent situations.</p>
                     </div>
                 </div>

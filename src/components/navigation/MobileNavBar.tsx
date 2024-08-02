@@ -11,8 +11,9 @@ const SideNavBar = () => {
                 <img 
                     src={logo4}
                     alt="menu icon"
-                    width={105}
-                    height={105}
+                    width={85}
+                    height={85}
+                    
                 />
             </Link>
             <MobileNavDrawer />
