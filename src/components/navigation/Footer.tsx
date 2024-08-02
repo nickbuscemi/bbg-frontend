@@ -8,11 +8,7 @@ const Footer = () => {
 
         <ul className="flex flex-wrap items-center justify-center space-x-12 md:space-x-16 mt-14">
             <li>
-                <a href="#" title="" className="inline-flex text-lg font-medium text-gray-900 transition-all duration-200 transform font-pj hover:-translate-y-1 hover:text-gray-600"> About </a>
-            </li>
-
-            <li>
-                <a href="#" title="" className="inline-flex text-lg font-medium text-gray-900 transition-all duration-200 transform font-pj hover:-translate-y-1 hover:text-gray-600"> Services </a>
+                <a href="/about-us" title="" className="inline-flex text-lg font-medium text-gray-900 transition-all duration-200 transform font-pj hover:-translate-y-1 hover:text-gray-600"> About </a>
             </li>
 
             <li>

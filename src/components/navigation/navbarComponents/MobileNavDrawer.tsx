@@ -29,21 +29,21 @@ export const MobileNavDrawer: FC = () => {
             
           <div className="flex flex-col gap-4 p-4 items-center justify-center pt-48 text-white">
           
-            <Link to="/menus" className={pTagClasses}>
+            <Link to="/about-us" className={pTagClasses}>
               <DrawerClose>
-                menus
+                About Us
               </DrawerClose>
             </Link>
             
             <Link to="/services" className={pTagClasses}>
               <DrawerClose>
-                services
+                Residential 
               </DrawerClose>
             </Link>
 
             <Link to="/aboutus" className={pTagClasses}>
               <DrawerClose>
-                our team
+                Commercial
               </DrawerClose>
             </Link>
 
@@ -55,7 +55,7 @@ export const MobileNavDrawer: FC = () => {
 
             <Link to="/contact" className={pTagClasses}>
               <DrawerClose>
-                contact us
+                Quotes
               </DrawerClose>
             </Link>
 

@@ -34,7 +34,7 @@ const DeskNavBar: React.FC = () => {
         </Link>
         <DeskNavBarLinks />
         </div>
-        <div className='gap-4 flex'>
+        <div className='gap-4 flex font-helvetica-regular'>
             <Link to="/contact" className="w-full flex rounded-md items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-logoDarkGray bg-gray-100 hover:bg-emerald-100 md:py-3 md:text-sm md:px-8">
                 Contact
             </Link>

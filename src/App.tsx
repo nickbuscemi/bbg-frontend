@@ -10,6 +10,7 @@ import ServiceAreas from './_root/pages/ServiceAreas';
 import Contact from './_root/pages/Contact';
 import PestLibrary from './_root/pages/PestLibrary';
 import PestPage  from './_root/pages/PestPage';
+import FAQ from './_root/pages/FAQ';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <Route path='service-areas' element={<ServiceAreas />} />
           <Route path='contact' element={<Contact />} />
           <Route path='/:insectName' element={<PestPage />} />
+          <Route path='/faq' element={<FAQ />} />
         </Route>
       </Routes>
     </main>

@@ -2,7 +2,7 @@
 
 export const QuoteForm = () => {
   return (
-    <div className="lg:pl-12 md:pt-0 pt-16 animate__animated animate__tada">
+    <div className="lg:pl-12 md:pt-0 pt-16 animate__animated animate__fadeInRight">
             <div className="overflow-hidden bg-white rounded-md">
               <div className="p-6 sm:p-10">
                 <h3 className="text-3xl font-semibold text-black">Have a pest problem?</h3>

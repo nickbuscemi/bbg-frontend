@@ -1,0 +1,14 @@
+.hover-effect {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .hover-effect .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-effect:hover .arrow {
+    transform: translateX(5px); /* Adjust the value as needed */
+  }
+  

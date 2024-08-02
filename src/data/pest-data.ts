@@ -1,3 +1,4 @@
+// svgs
 import cockroach from '../assets/svgs/cockroach.svg';
 import termite from '../assets/svgs/termite.svg';
 import wasp from '../assets/svgs/wasp.svg';
@@ -9,9 +10,14 @@ import earwig from '../assets/svgs/earwig.svg';
 import beetle from '../assets/svgs/beetle.svg';
 import bedbug from '../assets/svgs/bedbug.svg';
 
+// jpegs 1006x1356
+import ant1 from '../assets/images/pestImages/ant1.jpeg'
+import bedbug1 from '../assets/images/pestImages/bedbug1.jpeg'
+
 export const insects = [
     {
         img: cockroach,
+        img2: '',
         alt: 'Cockroach',
         name: 'Cockroaches',
         latin: 'Blattodea',
@@ -22,10 +28,11 @@ export const insects = [
             'They can hold their breath for up to 40 minutes.',
             'Cockroaches can run up to three miles in an hour.'
         ],
-        additionalInfo: 'Cockroaches have been around for over 300 million years and are one of the most adaptable pests. Effective control involves sanitation, exclusion, and the use of insecticides.'
+        additionalInfo: 'To address a cockroach infestation, start by eliminating food and water sources. Keep your home clean, store food in sealed containers, and fix any leaks. Use baits and insecticides as needed, and consider contacting a professional pest control service for severe infestations.'
     },
     {
         img: termite,
+        img2: '',
         alt: 'Termite',
         name: 'Termites',
         latin: 'Isoptera',
@@ -36,10 +43,11 @@ export const insects = [
             'A single termite colony can eat up to 1,000 pounds of wood per year.',
             'There are over 2,000 known termite species worldwide.'
         ],
-        additionalInfo: 'Preventing termite infestations involves reducing moisture around your home, removing potential food sources, and having regular inspections by pest control professionals.'
+        additionalInfo: 'Preventing termite infestations involves reducing moisture around your home, removing potential food sources, and having regular inspections by pest control professionals. If you suspect a termite infestation, contact a pest control service immediately to assess the damage and implement a treatment plan.'
     },
     {
         img: wasp,
+        img2: '',
         alt: 'Wasp',
         name: 'Wasps',
         latin: 'Hymenoptera',
@@ -50,10 +58,11 @@ export const insects = [
             'A wasp colony can contain up to 5,000 members.',
             'Wasps play a vital role in pollination and pest control.'
         ],
-        additionalInfo: 'To prevent wasp infestations, keep food and drinks covered when outside, seal cracks and crevices in your home, and avoid wearing bright colors and strong fragrances.'
+        additionalInfo: 'To prevent wasp infestations, keep food and drinks covered when outside, seal cracks and crevices in your home, and avoid wearing bright colors and strong fragrances. If you find a wasp nest, it is best to contact a pest control professional to safely remove it.'
     },
     {
         img: ant,
+        img2: ant1,
         alt: 'Ant',
         name: 'Ants',
         latin: 'Formicidae',
@@ -64,10 +73,11 @@ export const insects = [
             'There are over 12,000 species of ants worldwide.',
             'Ants have two stomachs, one for their own food and one for food to share with others.'
         ],
-        additionalInfo: 'Effective ant control involves identifying the species, locating and treating the nest, and maintaining good sanitation practices to prevent future infestations.'
+        additionalInfo: 'Effective ant control involves identifying the species, locating and treating the nest, and maintaining good sanitation practices to prevent future infestations. Use bait traps and insecticides as needed, and keep food sealed and surfaces clean to deter ants from entering your home.'
     },
     {
         img: mosquito,
+        img2: '',
         alt: 'Mosquito',
         name: 'Mosquitos',
         latin: 'Culicidae',
@@ -78,10 +88,11 @@ export const insects = [
             'A mosquito can drink up to three times its weight in blood.',
             'Mosquitoes are attracted to body heat, carbon dioxide, and sweat.'
         ],
-        additionalInfo: 'To reduce mosquito populations, eliminate standing water around your home, use mosquito repellents, and install screens on windows and doors to prevent them from entering your house.'
+        additionalInfo: 'To reduce mosquito populations, eliminate standing water around your home, use mosquito repellents, and install screens on windows and doors to prevent them from entering your house. Consider using mosquito nets and outdoor insecticides for added protection.'
     },
     {
         img: spider,
+        img2: '',
         alt: 'Spider',
         name: 'Spiders',
         latin: 'Araneae',
@@ -92,10 +103,11 @@ export const insects = [
             'The largest spider species is the Goliath birdeater tarantula.',
             'Some spiders can live up to 20 years.'
         ],
-        additionalInfo: 'To prevent spider infestations, reduce clutter, seal cracks and gaps in your home, and keep your home clean to remove potential hiding spots and food sources.'
+        additionalInfo: 'To prevent spider infestations, reduce clutter, seal cracks and gaps in your home, and keep your home clean to remove potential hiding spots and food sources. If you encounter venomous spiders, it is best to contact a pest control professional to handle the situation safely.'
     },
     {
         img: flea,
+        img2: '',
         alt: 'Flea',
         name: 'Fleas',
         latin: 'Siphonaptera',
@@ -106,10 +118,11 @@ export const insects = [
             'A flea can jump vertically up to 7 inches and horizontally up to 13 inches.',
             'Fleas can survive without a host for several months.'
         ],
-        additionalInfo: 'Effective flea control involves treating pets, washing bedding, vacuuming regularly, and using flea control products to break the flea life cycle.'
+        additionalInfo: 'Effective flea control involves treating pets, washing bedding, vacuuming regularly, and using flea control products to break the flea life cycle. Consult with a veterinarian for appropriate flea treatments for pets and consider professional pest control for severe infestations.'
     },
     {
         img: earwig,
+        img2: '',
         alt: 'Earwig',
         name: 'Earwigs',
         latin: 'Dermaptera',
@@ -120,10 +133,11 @@ export const insects = [
             'They use their pincers for defense and capturing prey.',
             'Earwigs are omnivores and feed on plants, insects, and decaying organic matter.'
         ],
-        additionalInfo: 'To control earwig populations, reduce moisture around your home, remove debris and organic matter, and use insecticides if necessary.'
+        additionalInfo: 'To control earwig populations, reduce moisture around your home, remove debris and organic matter, and use insecticides if necessary. Keeping your garden tidy and dry can help prevent earwig infestations.'
     },
     {
         img: beetle,
+        img2: '',
         alt: 'Beetle',
         name: 'Beetles',
         latin: 'Coleoptera',
@@ -134,10 +148,11 @@ export const insects = [
             'Some beetle species are beneficial and help control pests.',
             'Beetles undergo complete metamorphosis, including egg, larva, pupa, and adult stages.'
         ],
-        additionalInfo: 'Preventing beetle infestations involves proper storage of food products, regular cleaning, and using pest control measures when necessary.'
+        additionalInfo: 'Preventing beetle infestations involves proper storage of food products, regular cleaning, and using pest control measures when necessary. Identify the type of beetle and apply targeted treatments to control and eliminate them effectively.'
     },
     {
         img: bedbug,
+        img2: bedbug1,
         alt: 'Bedbug',
         name: 'Bedbugs',
         latin: 'Cimex lectularius',
@@ -148,6 +163,6 @@ export const insects = [
             'They can lay up to five eggs per day.',
             'Bedbugs are excellent hitchhikers and can spread through luggage, clothing, and furniture.'
         ],
-        additionalInfo: 'Effective bedbug control involves thorough inspections, using heat treatments or insecticides, and taking preventive measures to avoid re-infestation.'
+        additionalInfo: 'Effective bedbug control involves thorough inspections, using heat treatments or insecticides, and taking preventive measures to avoid re-infestation. Regularly check and clean bedding, luggage, and furniture to detect and prevent bedbug infestations early.'
     },
 ];

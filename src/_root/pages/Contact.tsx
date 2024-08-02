@@ -1,7 +1,10 @@
+import { GetQuote2 } from "@/components/contact/GetQuote2"
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>
+        <GetQuote2 />
+    </div>
   )
 }
 

@@ -1,5 +1,6 @@
 import stock12 from '../../../assets/images/stock12.jpeg';
 import stock2 from '../../../assets/images/stock2.jpg';
+import { Link } from 'react-router-dom';
 
 const About2 = () => {        
     return (
@@ -51,9 +52,9 @@ const About2 = () => {
             <p className="text-lg font-medium text-logoGreen font-pj">HOW TO START THE PROCESS?</p>
 
             <p>Click below to contact us!</p>
-            <a href="#" title="" className="inline-flex items-center px-6 py-4 mt-8 font-semibold text-gray-100 transition-all duration-200 bg-logoGreen rounded-md lg:mt-6 hover:bg-emerald-800 focus:bg-emerald-400" role="button">
-                Get a Free Estimate
-            </a>
+            <Link to="/contact" className="inline-block mt-4 text-logoGreen font-semibold hover-effect">
+                        Get a Free Estimate <span className="arrow">&rarr;</span>
+            </Link>
           </article>
         </div>
       </div>
