@@ -1,5 +1,4 @@
 import menu from "../../../assets/icons/menu.png"
-import reject from "../../../assets/icons/reject.png"
 import xicon from "../../../assets/icons/xicon.svg"
 //import { cloudFlareIcons } from "@/data/cloudFlareImagesConfig"
 import {
