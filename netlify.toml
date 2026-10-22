@@ -1,0 +1,12 @@
+# The quote form endpoint lives in netlify/functions (Netlify's default functions folder)
+
+[build.environment]
+  # @netlify/vite-plugin needs Node 22.12+
+  NODE_VERSION = "22"
+
+# Serve the app for client-side routes like /contact instead of a 404.
+# Functions with their own path, like /api/get-quote, run before this rule.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

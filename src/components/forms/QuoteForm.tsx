@@ -22,15 +22,17 @@ const formSchema = z.object({
     .refine((value) => value === "" || /^\d{5}$/.test(value), { message: "ZIP code should be 5 digits." }),
   service: z.string(),
   message: z.string().optional(),
+  website: z.string().optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
 type FieldName = keyof FormValues;
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+// Same origin by default: Netlify serves the API from netlify/functions
+const API_URL = import.meta.env.VITE_API_URL ?? "";
 
 // The API takes name/email/phone/message, so ZIP and service ride along at the top of the message
-const toPayload = ({ name, email, phone, zip, service, message }: FormValues) => ({
+const toPayload = ({ name, email, phone, zip, service, message, website }: FormValues) => ({
   name,
   email,
   phone,
@@ -40,6 +42,7 @@ const toPayload = ({ name, email, phone, zip, service, message }: FormValues) =>
   ]
     .filter(Boolean)
     .join("\n\n"),
+  website,
 });
 
 interface FieldProps {
@@ -100,6 +103,7 @@ export const QuoteForm = () => {
       zip: /^\d{5}$/.test(zipParam) ? zipParam : "",
       service: serviceParam,
       message: "",
+      website: "",
     },
   });
   const {
@@ -225,6 +229,12 @@ export const QuoteForm = () => {
             >
               {(describedBy) => <textarea rows={4} aria-describedby={describedBy} {...fieldProps("message")} />}
             </Field>
+
+            {/* Honeypot: kept off-screen and out of the tab order, so only bots fill it in */}
+            <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
+              <label htmlFor="website">Website</label>
+              <input id="website" type="text" tabIndex={-1} autoComplete="off" {...register("website")} />
+            </div>
 
             {status === "error" && (
               <div role="alert" className="flex items-start gap-2 border-l-4 border-red-700 bg-red-50 p-4 sm:col-span-2">
