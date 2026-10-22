@@ -4,69 +4,111 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    /*font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif; font-weight:600; font-stretch:condensed;*/
-
+    --focus-color: theme("colors.hunter");
+    --header-height: 5rem;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+  html {
+    /* Keep anchored sections and focused elements clear of the sticky header (WCAG 2.4.11) */
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+    -webkit-text-size-adjust: 100%;
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white font-sans text-base leading-relaxed text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-balance;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 3px;
+  }
+
+  /* Programmatic focus targets (main landmark after route change) shouldn't show a ring */
+  [tabindex="-1"]:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  .on-dark {
+    --focus-color: theme("colors.dust.DEFAULT");
+  }
+
+  ::selection {
+    @apply bg-sage text-ink;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
+@layer components {
+  /* Buttons: square, uppercase, tracked out */
+  .btn {
+    @apply inline-flex min-h-[3rem] items-center justify-center gap-2 border-2 px-6 py-3 text-center text-sm font-bold uppercase leading-tight tracking-button transition-colors duration-200;
+  }
+  .btn-primary {
+    @apply btn border-hunter bg-hunter text-white hover:border-pine-deep hover:bg-pine-deep;
+  }
+  .btn-light {
+    @apply btn border-sage bg-sage text-ink hover:border-dust hover:bg-dust;
+  }
+  .btn-outline {
+    @apply btn border-hunter bg-transparent text-hunter hover:bg-hunter hover:text-white;
+  }
+  .btn-outline-light {
+    @apply btn border-dust bg-transparent text-white hover:bg-dust hover:text-ink;
+  }
+
+  /* Small tracked label above headings */
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-eyebrow text-hunter sm:text-[0.8125rem];
+  }
+  .on-dark .eyebrow {
+    @apply text-dust;
+  }
+
+  .heading-display {
+    @apply font-display font-extrabold uppercase leading-[0.92] tracking-[0.005em];
+  }
+  .heading-section {
+    @apply text-3xl font-extrabold leading-[1.08] tracking-[-0.025em] sm:text-4xl lg:text-[2.75rem];
+  }
+
+  .text-link {
+    @apply font-semibold text-hunter underline decoration-fern decoration-2 underline-offset-4 transition-colors hover:decoration-hunter;
+  }
+  .on-dark .text-link {
+    @apply text-white decoration-sage hover:decoration-white;
+  }
+
+  /* Form controls: 3:1 border contrast, 48px targets */
+  .field {
+    @apply block min-h-[3rem] w-full border-2 border-stone-500 bg-white px-4 py-2.5 text-base text-ink transition-colors placeholder:text-stone-500 hover:border-ink focus:border-hunter;
+  }
+  .field[aria-invalid="true"] {
+    @apply border-red-700;
+  }
+  .field-label {
+    @apply mb-1.5 block text-sm font-bold text-ink;
+  }
+}

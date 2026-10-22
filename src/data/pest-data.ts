@@ -1,4 +1,4 @@
-// svgs
+// Silhouette icons (rendered through a CSS mask so they take brand colors)
 import cockroach from '../assets/svgs/cockroach.svg';
 import termite from '../assets/svgs/termite.svg';
 import wasp from '../assets/svgs/wasp.svg';
@@ -10,159 +10,198 @@ import earwig from '../assets/svgs/earwig.svg';
 import beetle from '../assets/svgs/beetle.svg';
 import bedbug from '../assets/svgs/bedbug.svg';
 
-// jpegs 1006x1356
-import ant1 from '../assets/images/pestImages/ant1.jpeg'
-import bedbug1 from '../assets/images/pestImages/bedbug1.jpeg'
+// Photos
+import cockroachPhoto from '../assets/photos/pest-cockroach.webp';
+import waspPhoto from '../assets/photos/pest-wasp.webp';
+import mosquitoPhoto from '../assets/photos/pest-mosquito.webp';
+import spiderPhoto from '../assets/photos/pest-spider.webp';
+import fleaPhoto from '../assets/photos/pest-flea.webp';
+import earwigPhoto from '../assets/photos/pest-earwig.webp';
+import beetlePhoto from '../assets/photos/pest-beetle.webp';
+import termitePhoto from '../assets/photos/termites-wood.webp';
+import antPhoto from '../assets/photos/pest-ant.webp';
+import bedbugPhoto from '../assets/photos/pest-bedbug.webp';
 
-export const insects = [
+export interface Pest {
+    slug: string;
+    name: string;
+    latin: string;
+    icon: string;
+    photo?: string;
+    photoAlt?: string;
+    description: string;
+    detail: string;
+    facts: string[];
+    prevention: string;
+    /** Related service on the Residential page */
+    service?: string;
+}
+
+export const insects: Pest[] = [
     {
-        img: cockroach,
-        img2: '',
-        alt: 'Cockroach',
+        slug: 'cockroaches',
         name: 'Cockroaches',
         latin: 'Blattodea',
-        description: 'Cockroaches are known for spreading diseases and contaminating food, making them a significant health risk in homes and businesses.',
-        detail: 'Cockroaches can survive in almost any environment and can live for a month without food. They are nocturnal and typically hide in dark, moist areas during the day.',
-        detailsList: [
-            'Cockroaches can survive without their head for a week.',
+        icon: cockroach,
+        photo: cockroachPhoto,
+        photoAlt: 'German cockroach feeding on spilled sugar',
+        description: 'Cockroaches spread bacteria and contaminate food, making them a real health risk in homes and businesses.',
+        detail: 'Cockroaches can survive in almost any environment and can live for a month without food. They are nocturnal and hide in dark, moist areas like under sinks, behind appliances, and inside wall voids during the day.',
+        facts: [
+            'Cockroaches can survive without their head for about a week.',
             'They can hold their breath for up to 40 minutes.',
-            'Cockroaches can run up to three miles in an hour.'
+            'Some species can run up to three miles per hour.',
         ],
-        additionalInfo: 'To address a cockroach infestation, start by eliminating food and water sources. Keep your home clean, store food in sealed containers, and fix any leaks. Use baits and insecticides as needed, and consider contacting a professional pest control service for severe infestations.'
+        prevention: 'Start by removing food and water sources: keep counters clean, store food in sealed containers, and fix leaks. Baits can help with light activity, but established infestations usually need professional treatment that reaches where roaches hide.',
     },
     {
-        img: termite,
-        img2: '',
-        alt: 'Termite',
+        slug: 'termites',
         name: 'Termites',
         latin: 'Isoptera',
-        description: 'Termites cause extensive damage to wooden structures by feeding on cellulose, leading to costly repairs for homeowners and businesses.',
-        detail: 'Termites live in colonies that can range from a few hundred to millions of individuals. They are divided into workers, soldiers, and reproductive members.',
-        detailsList: [
-            'Termites never sleep and can work 24 hours a day.',
-            'A single termite colony can eat up to 1,000 pounds of wood per year.',
-            'There are over 2,000 known termite species worldwide.'
+        icon: termite,
+        photo: termitePhoto,
+        photoAlt: 'Termites tunneling through damaged wood',
+        description: 'Termites feed on the cellulose in wood, quietly causing structural damage that can lead to costly repairs.',
+        detail: 'Termites live in colonies that range from a few hundred to millions of individuals, divided into workers, soldiers, and reproductives. On Long Island, eastern subterranean termites are the most common species, nesting in soil and building mud tubes to reach wood.',
+        facts: [
+            'Worker termites feed around the clock.',
+            'Spring swarms of winged termites are often the first visible sign of a colony.',
+            'There are over 2,000 known termite species worldwide.',
         ],
-        additionalInfo: 'Preventing termite infestations involves reducing moisture around your home, removing potential food sources, and having regular inspections by pest control professionals. If you suspect a termite infestation, contact a pest control service immediately to assess the damage and implement a treatment plan.'
+        prevention: 'Reduce moisture around your foundation, keep firewood and mulch away from the house, and avoid wood-to-soil contact. If you see mud tubes, swarmers, or damaged wood, schedule an inspection right away.',
+        service: 'termite-control',
     },
     {
-        img: wasp,
-        img2: '',
-        alt: 'Wasp',
+        slug: 'wasps',
         name: 'Wasps',
-        latin: 'Hymenoptera',
-        description: 'Wasps can be aggressive and their stings are painful and can cause allergic reactions, posing a threat to people, especially those allergic to insect stings.',
-        detail: 'Wasps are known for their distinct yellow and black coloring and their ability to sting multiple times. They build nests in protected areas and can be very territorial.',
-        detailsList: [
-            'Wasps can remember human faces.',
-            'A wasp colony can contain up to 5,000 members.',
-            'Wasps play a vital role in pollination and pest control.'
+        latin: 'Vespidae',
+        icon: wasp,
+        photo: waspPhoto,
+        photoAlt: 'Close-up of a yellow and black paper wasp',
+        description: 'Wasps can be aggressive near their nests, and their painful stings can cause serious allergic reactions.',
+        detail: 'Wasps, including yellowjackets and paper wasps, are known for their yellow and black markings and their ability to sting more than once. They build nests in sheltered spots like eaves, sheds, and underground cavities, and defend them aggressively in late summer.',
+        facts: [
+            'Some wasps can recognize individual faces.',
+            'A yellowjacket colony can grow to several thousand workers by late summer.',
+            'Wasps help control garden pests by preying on other insects.',
         ],
-        additionalInfo: 'To prevent wasp infestations, keep food and drinks covered when outside, seal cracks and crevices in your home, and avoid wearing bright colors and strong fragrances. If you find a wasp nest, it is best to contact a pest control professional to safely remove it.'
+        prevention: 'Keep food and drinks covered outdoors, seal gaps around eaves and siding, and keep trash cans closed. If you find a nest, don\'t try to knock it down yourself. Have a professional remove it safely.',
     },
     {
-        img: ant,
-        img2: ant1,
-        alt: 'Ant',
+        slug: 'ants',
         name: 'Ants',
         latin: 'Formicidae',
-        description: 'Ants invade homes in search of food and water, and some species can cause structural damage by nesting in wood.',
-        detail: 'Ants are social insects that live in colonies. They communicate through chemicals called pheromones and work together to find food and protect the nest.',
-        detailsList: [
-            'Ants can lift objects 50 times their own body weight.',
-            'There are over 12,000 species of ants worldwide.',
-            'Ants have two stomachs, one for their own food and one for food to share with others.'
+        icon: ant,
+        photo: antPhoto,
+        photoAlt: 'Close-up of a black carpenter ant',
+        description: 'Ants invade homes looking for food and water, and carpenter ants can damage wood by nesting inside it.',
+        detail: 'Ants are social insects that live in colonies. They communicate with chemical trails called pheromones, which is why one scout can quickly become a line of ants across your kitchen.',
+        facts: [
+            'Ants can lift objects many times their own body weight.',
+            'There are over 12,000 known ant species worldwide.',
+            'Ants share food with nestmates through a "social stomach."',
         ],
-        additionalInfo: 'Effective ant control involves identifying the species, locating and treating the nest, and maintaining good sanitation practices to prevent future infestations. Use bait traps and insecticides as needed, and keep food sealed and surfaces clean to deter ants from entering your home.'
+        prevention: 'Keep food sealed and surfaces crumb-free, fix moisture problems, and seal entry points. Because spraying visible ants doesn\'t reach the nest, effective control means identifying the species and treating the colony.',
+        service: 'ant-control',
     },
     {
-        img: mosquito,
-        img2: '',
-        alt: 'Mosquito',
-        name: 'Mosquitos',
+        slug: 'mosquitoes',
+        name: 'Mosquitoes',
         latin: 'Culicidae',
-        description: 'Mosquitoes are vectors for serious diseases such as malaria, dengue fever, and Zika virus, making them one of the most dangerous pests.',
-        detail: 'Mosquitoes breed in standing water and are most active during dawn and dusk. Only female mosquitoes bite, as they need blood to produce eggs.',
-        detailsList: [
-            'Mosquitoes have been on Earth for more than 100 million years.',
-            'A mosquito can drink up to three times its weight in blood.',
-            'Mosquitoes are attracted to body heat, carbon dioxide, and sweat.'
+        icon: mosquito,
+        photo: mosquitoPhoto,
+        photoAlt: 'Close-up of a mosquito resting on fabric',
+        description: 'Mosquitoes are more than a nuisance. In New York they can carry diseases like West Nile virus.',
+        detail: 'Mosquitoes breed in standing water and are most active at dawn and dusk. Only females bite, because they need blood to produce eggs. A bottle cap of water is enough for them to breed.',
+        facts: [
+            'Mosquitoes have been around for more than 100 million years.',
+            'They find you by tracking carbon dioxide, body heat, and sweat.',
+            'Some species can go from egg to adult in about a week.',
         ],
-        additionalInfo: 'To reduce mosquito populations, eliminate standing water around your home, use mosquito repellents, and install screens on windows and doors to prevent them from entering your house. Consider using mosquito nets and outdoor insecticides for added protection.'
+        prevention: 'Empty standing water from buckets, gutters, planters, and toys at least weekly. Keep window and door screens in good repair, and consider yard treatment to target where mosquitoes rest.',
+        service: 'mosquito-control',
     },
     {
-        img: spider,
-        img2: '',
-        alt: 'Spider',
+        slug: 'spiders',
         name: 'Spiders',
         latin: 'Araneae',
-        description: 'While most spiders are harmless, some species have venomous bites that can cause serious health issues, making them a concern in homes and businesses.',
-        detail: 'Spiders are arachnids, not insects. They have eight legs and two body segments. They use silk to build webs, capture prey, and protect their eggs.',
-        detailsList: [
+        icon: spider,
+        photo: spiderPhoto,
+        photoAlt: 'House spider hanging beneath its cobweb',
+        description: 'Most spiders are harmless, but a heavy presence can signal other pests, and a few species have medically significant bites.',
+        detail: 'Spiders are arachnids, not insects. They have eight legs and two body segments, and they use silk to build webs, catch prey, and protect their eggs. Indoors, they go where their food (other insects) is.',
+        facts: [
             'Spiders can produce up to seven different types of silk.',
-            'The largest spider species is the Goliath birdeater tarantula.',
-            'Some spiders can live up to 20 years.'
+            'They help control other insect populations.',
+            'Some spiders can live for years.',
         ],
-        additionalInfo: 'To prevent spider infestations, reduce clutter, seal cracks and gaps in your home, and keep your home clean to remove potential hiding spots and food sources. If you encounter venomous spiders, it is best to contact a pest control professional to handle the situation safely.'
+        prevention: 'Reduce clutter, vacuum webs and egg sacs, seal cracks and gaps, and cut down on outdoor lighting that draws in the insects spiders eat.',
     },
     {
-        img: flea,
-        img2: '',
-        alt: 'Flea',
+        slug: 'fleas',
         name: 'Fleas',
         latin: 'Siphonaptera',
-        description: 'Fleas are known for their ability to quickly infest homes and transmit diseases such as the bubonic plague and typhus, as well as causing severe discomfort to pets and humans through their bites.',
-        detail: 'Fleas are small, wingless insects that feed on the blood of mammals and birds. They can jump up to 150 times their own body length.',
-        detailsList: [
-            'Fleas can lay up to 50 eggs per day.',
-            'A flea can jump vertically up to 7 inches and horizontally up to 13 inches.',
-            'Fleas can survive without a host for several months.'
+        icon: flea,
+        photo: fleaPhoto,
+        photoAlt: 'Magnified side view of a flea',
+        description: 'Fleas multiply quickly, cause itchy bites for people and pets, and can be hard to get rid of without treating their whole life cycle.',
+        detail: 'Fleas are small, wingless insects that feed on the blood of mammals and birds. Most of a flea population lives in carpets, bedding, and furniture as eggs, larvae, and pupae, not on your pet.',
+        facts: [
+            'A female flea can lay up to 50 eggs per day.',
+            'Fleas can jump many times their own body length.',
+            'Flea pupae can wait for weeks before hatching.',
         ],
-        additionalInfo: 'Effective flea control involves treating pets, washing bedding, vacuuming regularly, and using flea control products to break the flea life cycle. Consult with a veterinarian for appropriate flea treatments for pets and consider professional pest control for severe infestations.'
+        prevention: 'Treat pets with a vet-recommended product, wash bedding in hot water, and vacuum often. For heavy infestations, professional treatment of the home breaks the life cycle.',
     },
     {
-        img: earwig,
-        img2: '',
-        alt: 'Earwig',
+        slug: 'earwigs',
         name: 'Earwigs',
         latin: 'Dermaptera',
-        description: 'Earwigs are primarily nuisance pests that can invade homes in large numbers and cause damage to plants and flowers in gardens.',
-        detail: 'Earwigs are nocturnal insects that are easily recognized by their pincers. They prefer dark, damp environments and can be found under rocks, logs, and mulch.',
-        detailsList: [
-            'Earwigs can fly but prefer to crawl.',
-            'They use their pincers for defense and capturing prey.',
-            'Earwigs are omnivores and feed on plants, insects, and decaying organic matter.'
+        icon: earwig,
+        photo: earwigPhoto,
+        photoAlt: 'Earwig with rear pincers on weathered wood',
+        description: 'Earwigs are mostly nuisance pests, but they can show up indoors in large numbers and damage garden plants.',
+        detail: 'Earwigs are nocturnal and easy to recognize by the pincers on their abdomen. They like dark, damp places such as mulch, leaf litter, and under stones, and they move indoors when it gets too hot or dry outside.',
+        facts: [
+            'Many earwigs can fly, but they rarely do.',
+            'They use their pincers for defense and to catch prey.',
+            'Earwigs eat plants, other insects, and decaying matter.',
         ],
-        additionalInfo: 'To control earwig populations, reduce moisture around your home, remove debris and organic matter, and use insecticides if necessary. Keeping your garden tidy and dry can help prevent earwig infestations.'
+        prevention: 'Reduce moisture around your foundation, pull mulch and leaf litter back from the house, and seal gaps around doors and windows.',
     },
     {
-        img: beetle,
-        img2: '',
-        alt: 'Beetle',
+        slug: 'beetles',
         name: 'Beetles',
         latin: 'Coleoptera',
-        description: 'Beetles can cause significant damage to crops, stored food products, and natural fibers, leading to economic losses in agricultural and urban settings.',
-        detail: 'Beetles are the largest group of insects, with over 350,000 known species. They have hard, shell-like wings called elytra that protect their delicate hind wings.',
-        detailsList: [
-            'Beetles can be found in nearly every habitat on Earth.',
-            'Some beetle species are beneficial and help control pests.',
-            'Beetles undergo complete metamorphosis, including egg, larva, pupa, and adult stages.'
+        icon: beetle,
+        photo: beetlePhoto,
+        photoAlt: 'Close-up of a carpet beetle',
+        description: 'Household beetles can damage stored food, fabrics, carpets, and wood.',
+        detail: 'Beetles are the largest group of insects, with over 350,000 known species. Indoors, the usual suspects are pantry beetles in dry goods and carpet beetles in rugs, wool, and upholstery.',
+        facts: [
+            'Beetles live in nearly every habitat on Earth.',
+            'Carpet beetle larvae, not adults, do the damage to fabrics.',
+            'Beetles go through egg, larva, pupa, and adult stages.',
         ],
-        additionalInfo: 'Preventing beetle infestations involves proper storage of food products, regular cleaning, and using pest control measures when necessary. Identify the type of beetle and apply targeted treatments to control and eliminate them effectively.'
+        prevention: 'Store dry goods in sealed containers, vacuum carpets and under furniture regularly, and clean stored clothing before putting it away. Identifying the beetle is the key to treating it.',
     },
     {
-        img: bedbug,
-        img2: bedbug1,
-        alt: 'Bedbug',
-        name: 'Bedbugs',
+        slug: 'bed-bugs',
+        name: 'Bed Bugs',
         latin: 'Cimex lectularius',
-        description: 'Bedbugs are notorious for their bites, which cause itching and sleep disturbances. They can also spread rapidly and are difficult to eradicate, making them a persistent pest problem.',
-        detail: 'Bedbugs are small, reddish-brown insects that feed on the blood of humans and animals. They hide in cracks and crevices during the day and come out to feed at night.',
-        detailsList: [
-            'Bedbugs can survive for several months without feeding.',
-            'They can lay up to five eggs per day.',
-            'Bedbugs are excellent hitchhikers and can spread through luggage, clothing, and furniture.'
+        icon: bedbug,
+        photo: bedbugPhoto,
+        photoAlt: 'Close-up of a bed bug on fabric',
+        description: 'Bed bugs cause itchy bites and sleepless nights, spread easily, and are notoriously hard to get rid of on your own.',
+        detail: 'Bed bugs are small, reddish-brown insects that feed on blood. They hide in mattress seams, furniture joints, and cracks during the day and come out to feed at night.',
+        facts: [
+            'Bed bugs can survive for months without feeding.',
+            'A female can lay several eggs per day.',
+            'They hitchhike in luggage, clothing, and used furniture.',
         ],
-        additionalInfo: 'Effective bedbug control involves thorough inspections, using heat treatments or insecticides, and taking preventive measures to avoid re-infestation. Regularly check and clean bedding, luggage, and furniture to detect and prevent bedbug infestations early.'
+        prevention: 'Inspect luggage and secondhand furniture, use mattress encasements, and wash travel clothes on high heat. If you suspect bed bugs, call for an inspection before the problem spreads.',
+        service: 'bed-bug-treatment',
     },
 ];
+
+export const findPest = (slug?: string) => insects.find((pest) => pest.slug === slug);
